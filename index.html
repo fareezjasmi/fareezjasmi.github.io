@@ -1,0 +1,29 @@
+<script type="module">
+  import ZetrixWalletConnect from "https://cdn.skypack.dev/zetrix-connect-wallet-sdk@1.1.6";
+
+  var zetrixConnect = new ZetrixWalletConnect({
+    qrcode: false,
+  });
+
+  zetrixConnect.connect().then((res)=>{
+	document.getElementById("test").innerHTML = JSON.stringify("WS Connected");
+	test();
+  });
+
+  const test = () => {
+    zetrixConnect
+      .auth()
+      .then((res) => {
+        document.getElementById("test2").innerHTML = JSON.stringify(res);
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+        document.getElementById("test2").innerHTML = JSON.stringify(e);
+      });
+  };
+
+//  setTimeout(test, 1000);
+</script>
+<span id="test">No Update</span><br />
+<span id="test2">No Update</span>
