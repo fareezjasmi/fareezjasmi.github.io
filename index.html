@@ -13,6 +13,7 @@
       .auth()
       .then((res) => {
         document.getElementById("test2").innerHTML = JSON.stringify(res);
+        Print.postMessage(JSON.stringify(res));
         console.log(res);
       })
       .catch((e) => {
