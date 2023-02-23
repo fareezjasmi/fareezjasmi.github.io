@@ -12,6 +12,7 @@
     zetrixConnect
       .auth()
       .then((res) => {
+        Print.postMessage('Hello World being called from Javascript code');
         document.getElementById("test2").innerHTML = JSON.stringify(res);
         Print.postMessage(JSON.stringify(res));
         console.log(res);
